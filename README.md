@@ -21,6 +21,8 @@ Julia expression, for example
 @tree x^2 + y^2
 ```
 
+See [this notebook](examples/TreeView.ipynb) for usage examples.
+
 ## Author
 
 - [David P. Sanders](http://sistemas.fciencias.unam.mx/~dsanders),
