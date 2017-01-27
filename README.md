@@ -21,6 +21,7 @@ Julia expression, for example
 @tree x^2 + y^2
 ```
 which gives the following output:
+
 ![example_tree](example_tree.png)
 
 See [this notebook](examples/TreeView.ipynb) for usage examples.
