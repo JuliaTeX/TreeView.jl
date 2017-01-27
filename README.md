@@ -31,5 +31,5 @@ Departamento de Física, Facultad de Ciencias, Universidad Nacional Autónoma de
 ## Acknowledements
 Financial support is acknowledged from DGAPA-UNAM PAPIME grants PE-105911 and PE-107114, and DGAPA-UNAM PAPIIT grant IN-117214, and from a CONACYT-Mexico sabbatical fellowship. The author thanks Alan Edelman and the Julia group for hospitality during his sabbatical visit.
 
-In particular, he thanks Jiahao Chen, who, when asked if this package existed,
-replied "why don't you implement it?".
+In particular, he thanks Jiahao Chen, who, when asked if a package like this existed,
+replied "why don't you write one?".
