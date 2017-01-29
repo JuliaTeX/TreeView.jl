@@ -26,6 +26,11 @@ which gives the following output:
 
 See [this notebook](examples/TreeView.ipynb) for usage examples.
 
+## Installation prerequisites
+
+You will need to have `LaTeX` installed on your system, and install the `pdf2svg` utility; see
+the [`TikzGraphs.jl` documentation](http://nbviewer.jupyter.org/github/sisl/TikzGraphs.jl/blob/master/doc/TikzGraphs.ipynb) for details.
+
 ## Author
 
 - [David P. Sanders](http://sistemas.fciencias.unam.mx/~dsanders),
