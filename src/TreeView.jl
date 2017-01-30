@@ -7,7 +7,7 @@ using CommonSubexpressions
 export LabelledTree, walk_tree, walk_tree!, draw, @tree, @tree_with_call,
         tikz_representation
 
-export make_dag, @dag
+export make_dag, @dag, @dag_cse
 
 
 abstract LabelledDiGraph
