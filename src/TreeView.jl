@@ -6,6 +6,10 @@ using MacroTools
 export LabelledTree, walk_tree, walk_tree!, draw, @tree, @tree_with_call,
         tikz_representation
 
+include("dag.jl")
+export make_dag
+
+
 immutable LabelledTree
     g::Graph
     labels::Vector{String}
@@ -42,20 +46,20 @@ function walk_tree!(g, labels, ex, show_call=true)
 
     top_vertex = add_numbered_vertex!(g)
 
-    start_argument = 1  # which argument to start with
+    where_start = 1  # which argument to start with
 
     if !(show_call) && ex.head == :call
         f = ex.args[1]   # the function name
         push!(labels, label(f))
 
-        start_argument = 2   # drop "call" from tree
+        where_start = 2   # drop "call" from tree
 
     else
         push!(labels, label(ex.head))
     end
 
 
-    for i in start_argument:length(ex.args)
+    for i in where_start:length(ex.args)
 
         if isa(ex.args[i], Expr)
 
