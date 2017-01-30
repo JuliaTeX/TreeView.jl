@@ -3,16 +3,16 @@ module TreeView
 using LightGraphs, TikzGraphs
 using MacroTools
 
-export LabelledTree, walk_tree, walk_tree!, draw, @tree, @tree_with_call,
+export LabelledDigraph, walk_tree, walk_tree!, draw, @tree, @tree_with_call,
         tikz_representation
 
 include("dag.jl")
 export make_dag
 
 
-immutable LabelledTree
+immutable LabelledDigraph
     g::DiGraph
-    labels::Vector{String}
+    labels::Vector{Any}
 end
 
 add_numbered_vertex!(g) = (add_vertex!(g); top = nv(g))  # returns the number of the new vertex
@@ -55,7 +55,7 @@ function walk_tree!(g, labels, ex, show_call=true)
         where_start = 2   # drop "call" from tree
 
     else
-        push!(labels, label(ex.head))
+        push!(labels, ex.head)
     end
 
 
@@ -70,7 +70,7 @@ function walk_tree!(g, labels, ex, show_call=true)
             n = add_numbered_vertex!(g)
             add_edge!(g, top_vertex, n)
 
-            push!(labels, label(ex.args[i]))
+            push!(labels, ex.args[i])
 
         end
     end
@@ -81,26 +81,26 @@ end
 
 function walk_tree(ex::Expr, show_call=false)
     g = DiGraph()
-    labels = String[]
+    labels = Any[]
 
     walk_tree!(g, labels, ex, show_call)
 
-    return LabelledTree(g, labels)
+    return LabelledDigraph(g, labels)
 
 end
 
 tikz_representation(tree) = TikzGraphs.plot(tree.g, tree.labels)
 
 import Base.show
-function show(io::IO, mime::MIME"image/svg+xml", tree::LabelledTree)
+function show(io::IO, mime::MIME"image/svg+xml", tree::LabelledDigraph)
     p = tikz_representation(tree)  # TikzPicture object
     show(io, mime, p)
 end
 
 
 
-function draw(tree::LabelledTree)
-    TikzGraphs.plot(tree.g, tree.labels)
+function draw(tree::LabelledDigraph)
+    TikzGraphs.plot(tree.g, map(label, tree.labels))
 end
 
 

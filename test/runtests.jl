@@ -6,12 +6,12 @@ using Base.Test
 
     t = @tree 1x
 
-    @test typeof(t) == TreeView.LabelledTree
-    @test typeof(t.g) == LightGraphs.Graph
-    @test typeof(t.labels) == Vector{String}
+    @test typeof(t) == TreeView.LabelledDigraph
+    @test typeof(t.g) == LightGraphs.DiGraph
+    @test typeof(t.labels) == Vector{Any}
 
     @test t.g.vertices == 1:3
-    @test t.labels == String["\\texttt{*}","\\texttt{1}","\\texttt{x}"]
+    @test t.labels == Any["\\texttt{*}",1,:x]
 
 
     t = @tree x^2 + y^2
@@ -22,5 +22,5 @@ end
     # Test for issues with the characters present in julia's generated symbols
     expr = Expr(Symbol("##271"))
     t = walk_tree(expr)
-    @test t.labels[1] == "\\texttt{\\#\\#271}"
+    @test t.labels[1] == Symbol("##271")
 end
