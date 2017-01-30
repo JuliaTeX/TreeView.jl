@@ -17,3 +17,10 @@ using Base.Test
     t = @tree x^2 + y^2
     @test length(t.labels) == 7
 end
+
+@testset "latex special characters" begin
+    # Test for issues with the characters present in julia's generated symbols
+    expr = Expr(Symbol("##271"))
+    t = walk_tree(expr)
+    @test t.labels[1] == "\\texttt{\\#\\#271}"
+end
