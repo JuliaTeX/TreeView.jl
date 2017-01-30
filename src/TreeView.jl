@@ -13,11 +13,15 @@ end
 
 add_numbered_vertex!(g) = (add_vertex!(g); top = nv(g))  # returns the number of the new vertex
 
+# latex treats # as a special character, so we have to escape it. See:
+# https://github.com/sisl/TikzGraphs.jl/issues/12
+latex_escape(s::String) = replace(s, "#", "\\#")
+
 "Convert the current node into a label"
 function label(sym)
     sym == :(^) && return "\\textasciicircum"  # TikzGraphs chokes on ^
 
-    return string("\\texttt{", sym, "}")
+    return latex_escape(string("\\texttt{", sym, "}"))
 end
 
 
