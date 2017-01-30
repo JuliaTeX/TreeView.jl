@@ -6,12 +6,12 @@ using Base.Test
 
     t = @tree 1x
 
-    @test typeof(t) == TreeView.LabelledDigraph
+    @test typeof(t) == TreeView.LabelledTree
     @test typeof(t.g) == LightGraphs.DiGraph
     @test typeof(t.labels) == Vector{Any}
 
     @test t.g.vertices == 1:3
-    @test t.labels == Any["\\texttt{*}",1,:x]
+    @test t.labels == Any[:*,1,:x]
 
 
     t = @tree x^2 + y^2
@@ -23,4 +23,9 @@ end
     expr = Expr(Symbol("##271"))
     t = walk_tree(expr)
     @test t.labels[1] == Symbol("##271")
+end
+
+@testset "DAG" begin
+    dag = @dag x + 2x
+    @test length(dag.labels) == 4
 end
