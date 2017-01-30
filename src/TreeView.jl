@@ -11,7 +11,7 @@ export make_dag
 
 
 immutable LabelledTree
-    g::Graph
+    g::DiGraph
     labels::Vector{String}
 end
 
@@ -80,7 +80,7 @@ function walk_tree!(g, labels, ex, show_call=true)
 end
 
 function walk_tree(ex::Expr, show_call=false)
-    g = Graph()
+    g = DiGraph()
     labels = String[]
 
     walk_tree!(g, labels, ex, show_call)
