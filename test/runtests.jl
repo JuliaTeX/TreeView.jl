@@ -28,4 +28,10 @@ end
 @testset "DAG" begin
     dag = @dag x + 2x
     @test length(dag.labels) == 4
+
+    dag = @dag((x+y)^2 + (x+y))
+    @test length(dag.labels) == 7
+
+    dag2 = @dag_cse((x+y)^2 + (x+y))
+    @test length(dag2.labels) == 6
 end
