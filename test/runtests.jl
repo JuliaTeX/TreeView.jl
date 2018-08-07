@@ -1,4 +1,5 @@
 using TreeView
+using LightGraphs
 using Test
 
 # write your own tests here
@@ -6,11 +7,11 @@ using Test
 
     t = @tree 1x
 
-    @test typeof(t) == TreeView.LabelledTree
-    @test typeof(t.g) == LightGraphs.DiGraph
-    @test typeof(t.labels) == Vector{Any}
+    @test isa(t, TreeView.LabelledTree)
+    @test isa(t.g, LightGraphs.DiGraph)
+    @test isa(t.labels, Vector{Any})
 
-    @test t.g.vertices == 1:3
+    @test vertices(t.g) == collect(1:3)
     @test t.labels == Any[:*,1,:x]
 
 

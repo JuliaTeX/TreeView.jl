@@ -10,7 +10,6 @@ Including them represents the Julia AST more precisely, but adds visual noise.
 
 Returns the number of the top vertex.
 """
-
 function walk_tree!(g, labels, ex, show_call=true)
 
     top_vertex = add_numbered_vertex!(g)

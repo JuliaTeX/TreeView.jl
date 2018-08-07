@@ -16,9 +16,8 @@ DirectedAcyclicGraph() = DirectedAcyclicGraph(DiGraph(), Symbol[], Dict())
 """
 Adds a symbol to the DAG if it doesn't already exist.
 Returns the vertex number
-"""
-
 # Make numbers unique:
+"""
 function add_symbol!(dag::DirectedAcyclicGraph, s)  # number
     vertex = add_numbered_vertex!(dag.g)
     push!(dag.labels, s)
