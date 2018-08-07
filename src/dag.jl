@@ -5,7 +5,7 @@ Structure representing a DAG.
 Maintains a `symbol_map` giving the currently-known symbols and the corresponding
 vertex number in the graph.
 """
-immutable DirectedAcyclicGraph <: LabelledDiGraph
+struct DirectedAcyclicGraph <: LabelledDiGraph
     g::DiGraph
     labels::Vector{Any}
     symbol_map::Dict{Symbol, Int}

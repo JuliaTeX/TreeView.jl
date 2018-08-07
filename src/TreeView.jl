@@ -10,9 +10,11 @@ export LabelledTree, walk_tree, walk_tree!, draw, @tree, @tree_with_call,
 export make_dag, @dag, @dag_cse
 
 
-abstract LabelledDiGraph
+abstract type LabelledDiGraph 
 
-immutable LabelledTree <: LabelledDiGraph
+end
+
+struct LabelledTree <: LabelledDiGraph
     g::DiGraph
     labels::Vector{Any}
 end
