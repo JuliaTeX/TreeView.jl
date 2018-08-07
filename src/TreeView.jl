@@ -10,22 +10,18 @@ export LabelledTree, walk_tree, walk_tree!, draw, @tree, @tree_with_call,
 export make_dag, @dag, @dag_cse
 
 
-abstract LabelledDiGraph
+abstract type LabelledDiGraph
+end
 
-immutable LabelledTree <: LabelledDiGraph
+struct LabelledTree <: LabelledDiGraph
     g::DiGraph
     labels::Vector{Any}
 end
 
 add_numbered_vertex!(g) = (add_vertex!(g); top = nv(g))  # returns the number of the new vertex
 
-
-
 include("tree.jl")
 include("dag.jl")
 include("display.jl")
-
-
-
 
 end # module

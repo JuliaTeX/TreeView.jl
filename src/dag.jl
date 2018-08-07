@@ -5,7 +5,7 @@ Structure representing a DAG.
 Maintains a `symbol_map` giving the currently-known symbols and the corresponding
 vertex number in the graph.
 """
-immutable DirectedAcyclicGraph <: LabelledDiGraph
+struct DirectedAcyclicGraph <: LabelledDiGraph
     g::DiGraph
     labels::Vector{Any}
     symbol_map::Dict{Symbol, Int}
@@ -16,9 +16,8 @@ DirectedAcyclicGraph() = DirectedAcyclicGraph(DiGraph(), Symbol[], Dict())
 """
 Adds a symbol to the DAG if it doesn't already exist.
 Returns the vertex number
-"""
-
 # Make numbers unique:
+"""
 function add_symbol!(dag::DirectedAcyclicGraph, s)  # number
     vertex = add_numbered_vertex!(dag.g)
     push!(dag.labels, s)

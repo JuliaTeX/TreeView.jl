@@ -1,5 +1,5 @@
-julia 0.5
-LightGraphs 0.7
-TikzGraphs 0.3
-MacroTools 0.3
-CommonSubexpressions
+julia 0.7-beta2
+LightGraphs 0.13.1
+TikzGraphs 0.7
+MacroTools 0.4.2
+CommonSubexpressions 0.2
