@@ -1,7 +1,7 @@
 # TreeView
 
-[![Build Status](https://travis-ci.org/dpsanders/TreeView.jl.svg?branch=master)](https://travis-ci.org/dpsanders/TreeView.jl)
-[![codecov.io](http://codecov.io/github/dpsanders/TreeView.jl/coverage.svg?branch=master)](http://codecov.io/github/dpsanders/TreeView.jl?branch=master)
+[![Build Status](https://travis-ci.org/JuliaTeX/TreeView.jl.svg?branch=master)](https://travis-ci.org/JuliaTeX/TreeView.jl)
+[![codecov.io](http://codecov.io/github/JuliaTeX/TreeView.jl/coverage.svg?branch=master)](http://codecov.io/github/JuliaTeX/TreeView.jl?branch=master)
 
 
 This is a small package to visualize a graph corresponding to an
