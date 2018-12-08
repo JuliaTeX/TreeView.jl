@@ -2,7 +2,13 @@
 # latex treats # as a special character, so we have to escape it. See:
 # https://github.com/sisl/TikzGraphs.jl/issues/12
 
-latex_escape(s::String) = replace(s, "#"=>"\\#")
+# latex_escape(s::String) = replace(s, Dict("#"=>"\\#", "&"=>"\\&"))
+
+function latex_escape(s::String)
+    s = replace(s, "#"=>"\\#")
+    s = replace(s, "&"=>"\\&")
+    return s
+end
 
 "Convert a symbol or  into a LaTeX label"
 function latex_label(sym)
