@@ -26,7 +26,7 @@ end
     @test t.labels[1] == Symbol("##271")
 
     t = @tree x && y
-    @test TreeView.latex_escape(string(t.labels[1]))) == "\\&\\&"
+    @test TreeView.latex_escape(string(t.labels[1])) == "\\&\\&"
 end
 
 @testset "DAG" begin
