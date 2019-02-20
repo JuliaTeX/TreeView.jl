@@ -21,7 +21,7 @@ which gives the following output:
 
 ![example_tree](example_tree.png)
 
-See [this notebook](examples/TreeView usage.ipynb) for usage examples.
+See [this notebook]("examples/TreeView usage.ipynb") for usage examples.
 
 ## Installation prerequisites
 
