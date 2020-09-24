@@ -27,6 +27,9 @@ end
 
     t = @tree x && y
     @test TreeView.latex_escape(string(t.labels[1])) == "\\&\\&"
+
+    t = @tree promote_type(Int64, Float64)
+    @test TreeView.latex_escape(string(t.labels[1])) == "promote\\_type"
 end
 
 @testset "DAG" begin
