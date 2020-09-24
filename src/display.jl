@@ -7,6 +7,7 @@
 function latex_escape(s::String)
     s = replace(s, "#"=>"\\#")
     s = replace(s, "&"=>"\\&")
+    s = replace(s, "_"=>"\\_")
     return s
 end
 
