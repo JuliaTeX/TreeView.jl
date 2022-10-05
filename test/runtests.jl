@@ -1,5 +1,5 @@
 using TreeView
-using LightGraphs
+using Graphs
 using Test
 
 # write your own tests here
@@ -8,7 +8,7 @@ using Test
     t = @tree 1x
 
     @test isa(t, TreeView.LabelledTree)
-    @test isa(t.g, LightGraphs.DiGraph)
+    @test isa(t.g, Graphs.DiGraph)
     @test isa(t.labels, Vector{Any})
 
     @test vertices(t.g) == collect(1:3)

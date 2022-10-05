@@ -1,6 +1,6 @@
 module TreeView
 
-using LightGraphs, TikzGraphs
+using Graphs, TikzGraphs
 using MacroTools
 using CommonSubexpressions
 
